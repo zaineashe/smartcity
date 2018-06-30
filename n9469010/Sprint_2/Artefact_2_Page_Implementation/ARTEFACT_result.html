@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>City Finder</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static "CityFinder/style.css" %}">
+
+        <script src="{% static "CityFinder/script.js" %}"></script>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiQBcLHFTpkoWsFJgGwtDWQ52GH-KFS-w&callback=initMap"></script>
+    </head>
+    <body>
+
+        {{ page_header }}
+		
+		 <div class="content">
+
+             <div class="contentListHeader">
+				<span id="contentHeader" class="contentListHeaderText"></span>
+				<select onchange="changeOrderBy(this.value)" class="sortBySelector">
+                    <option> --- </option>
+					{% if orderBy == 'd.data_name' %}
+						<option id="orderBy_0" value="d.data_name" selected>Name</option>
+					{% else %}
+						<option id="orderBy_0" value="d.data_name">Name</option>
+					{% endif %}
+					{% if orderBy == 'a.street_name' %}
+						<option id="orderBy_1" value="a.street_name" selected>Address</option>
+					{% else %}
+						<option id="orderBy_1" value="a.street_name">Address</option>
+					{% endif %}
+				</select>
+				<span class="sort_text">Sort:</span>
+               
+
+			</div>
+
+           {% if lcount > 0%}     
+
+            <div id="results" class="contentList">
+                {% for data in data_list %}
+				<a id="{{data.dataType}}_{{data.data_id}}"  onclick = "toItem('{{data.data_id}}')">
+					<div class="contentCell">
+						<img src="{% static "CityFinder/imgs/photo.jpg" %}" alt="photo">
+                        <span >{{ data.data_name }} </span><br/>
+                        <span > {{ data.street_number }} {{data.street_name}}</span><br/>
+                        <span > {{data.suburb}} {{data.city_name}} {{data.postcode}} {{data.city}}</span><br/><br/>
+                        <span>{{data.email}}</span><br />
+                        <span>{{data.phone}}</span> <br/>
+                        {% if data.dataType == "In" %}
+                        <span>{{data.industryType}}</span>
+                        {% endif %}
+						<data id="{{data.data_id}}" value="{{data.latitude}},{{data.longitude}}"></data>
+                    </div>
+                </a>
+                {% endfor %}
+			{% endif %}
+            </div>
+        </div>
+		
+		<div id="mapWrapper">
+            <div id="map"></div>
+        </div>
+	</body>
+</html>

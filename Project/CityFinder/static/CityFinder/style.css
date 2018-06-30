@@ -1,0 +1,415 @@
+/* Global page and font elements */
+body, html {
+	background-color: #f3f3f3;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	min-width: 1000px;
+	font-family: "Microsoft Yahei", Tahoma, Helvetica, Arial, sans-serif;
+}
+
+a {
+    cursor:pointer;
+}
+
+.department {
+    border-bottom:thin solid grey;
+    margin:1px;
+}
+
+/* Header on all pages */
+#header {
+	position: relative;
+	height: 120px;
+	background-color: white;
+	box-shadow: 0px 3px 7px #c0c0c0;
+}
+
+/* Brisbane park finder logo on header */
+#logo {
+	position: absolute;
+	top: calc((50% - 37px) / 2);
+	margin-left: 2.5%;
+	font-size: 200%;
+	left: 0;
+}
+
+/* City text on header */
+#text_city {
+	color: #6aa84f;
+}
+
+/* Finder text on header */
+#text_finder {
+	color: #ff9900;
+}
+
+#searchBox {
+	position: relative;
+	top: 10%;
+	left: 38%;
+	height: 40%;
+	width: 20%;
+	min-width: 462px;
+	background-color: #efefef;
+	border: 0px; 
+	border-radius: 5px;
+	transition: box-shadow 0.3s;
+	display: inline-block;
+}
+
+#searchBox:hover {
+	box-shadow: 0px 3px 5px #c0c0c0;
+	transition: box-shadow 0.2s;
+}
+
+#searchBar {
+    height: 45px;
+    width: 83%;
+    border: 0px;
+    border-radius: 5px;
+    background-color: #efefef;
+	color:#66666d;
+    outline: none;
+    font-size: 110%;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 10px;
+	padding-top: 2px;
+	display: inline-block;
+}
+
+#searchButton {
+    cursor:pointer;
+    position: absolute;
+    height: 48px;
+    min-height: 45px;
+    width: 3%;
+    min-width: 69px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #3c78da;
+    padding: 0;
+    color: white;
+    outline: none;
+    font-size: 120%;
+}
+
+/* Navigation bar in header */
+#navigationBar {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom:0;
+	border:1px;
+	border-color:black;
+}
+
+/* Navigation bar list */
+#navigationBar ul {
+	list-style-type: none;
+	margin-left: 2.5%;
+	margin-bottom: 2px;
+	padding: 0;
+	overflow: hidden;
+}
+
+/* Navigation bar list items */
+#navigationBar ul li {
+	display: inline-block;
+	margin-right: 2%;
+	border: 0;
+	border-color: white;
+	padding-bottom: 10px;
+	transition: border-color 0.5s;
+}
+
+/* Navigation bar item links */
+#navigationBar ul li a {
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 100%;
+	color: #7c7f7f;
+}
+
+/* Style when mouse is over navigation links */
+#navigationBar ul li:hover {
+	border-color: #3c78da; 
+	border-width: 0 0 3px 0;
+	border-style: solid;
+	padding-bottom: 7px;
+}
+
+#citySelector {
+	position: absolute;
+	right: 2%;
+	bottom: 10px;
+	color: #66666d;
+    font-weight: bold;
+    border-radius: 5px;
+    outline: none;
+    font-size: 100%;
+}
+
+#navigationBarSelector {
+	color: #66666d;
+    font-weight: bold;
+    border-radius: 5px;
+    outline: none;
+    font-size: 100%;
+}
+
+/* Div that creates the white area around the body content
+ of the search, login and register pages */
+#whiteBox {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    max-width: 600px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0px 3px 7px #c0c0c0;
+    text-align: center;
+}
+
+/* The large 'Login' and 'Register' texts
+ that appear on their respective pages */
+#titleText {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 275%;
+    color: #808080;
+}
+
+/* The username field in the login page */
+#loginFormTop {
+    margin-top: 1%;
+    margin-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    width: 40%;
+    min-width: 350px;
+    border: #d3d3d3 solid thin;
+    border-radius: 5px;
+    background-color: #efefef;
+    font-size: 120%;
+	padding-left: 10px;
+}
+
+/* The first and last name input fields on the register page */
+.loginFormHalf {
+    padding-left: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 40px;
+    width: 25.7%;
+    min-width: 154px;
+    border: #d3d3d3 solid thin;
+    border-radius: 5px;
+    background-color: #efefef;
+    font-size: 120%;
+}
+
+/* All other login & register input fields */
+.loginForm {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    width: 40%;
+    min-width: 350px;
+    border: #d3d3d3 solid thin;
+    border-radius: 5px;
+    background-color: #efefef;
+    font-size: 120%;
+	padding-left: 10px;
+}
+
+/* Log in & register button on their respective pages */
+#loginButton {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    height: 45px;
+    width: 20%;
+    min-width: 70px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #3c78da;
+    padding: 0;
+    color: white;
+    outline: none;
+    font-size: 110%;
+}
+
+/* The 'or Log in' and 'or register' text that appears
+ beside the login button */
+#loginOrRegisterText {
+    font-size: 100%;
+    position: relative;
+}
+
+#loginOrRegisterText a {
+	color: #66666d;
+}
+
+#header #topRight {
+	position: absolute;
+	top: 15%;
+	height: 20%;
+	right: calc(2% - 10px);
+}
+
+#header #topRight a {
+	margin-right: 10px;
+}
+
+#header #topRight a:link, :visited {
+    color: #66666d;
+}
+
+#userTypeSelector {
+	color: #757589;
+	outline: none;
+	margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    min-width: 60.5%;
+    border: #d3d3d3 solid thin;
+    border-radius: 5px;
+    background-color: #efefef;
+    font-size: 120%;
+	padding-left: 10px;
+}
+
+#mapWrapper {
+	background: white;
+	width: 53%;
+	height: calc(98% - 130px);
+	min-height: 575px;
+	margin-top: 10px;
+	margin-left: 10px;
+	padding: 5px;
+	box-shadow: 0px 3px 7px #c0c0c0;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contentListHeader {
+	background-color: white;
+	display: inline-block;
+	margin-left: 2.5%;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	width: 92%;
+}
+
+.contentListHeaderText {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 150%;
+	float: left;
+}
+
+.sort_text {
+	color: #999c9c;
+	padding-right: 5px;
+	padding-top: 5px;
+	font-size: 100%;
+	float: right;
+}
+
+.sortBySelector {
+	color: #3c78da;
+	font-size: 150%;
+	text-align: right;
+	float: right;
+	margin-right: 10px;
+	width: 20%;
+}
+
+.content {
+	width: 45%;
+	height: calc(98% - 120px);
+	margin-top: 10px;
+	min-width: 433px;
+	min-height: 584px;
+	position: absolute;
+	right: 0;
+}
+
+.contentList {
+	background-color: white;
+	display: block;
+	margin-left: 2.5%;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 10px;
+	width: 92%;
+	height: 92%;
+	overflow: auto;
+}
+
+.contentList a {
+	text-decoration: none;
+}
+
+.contentCell {
+	width: 100%;
+	height: 20%;
+	min-height: 75px;
+	padding-top: 22px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	border-color: #f3f3f3;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+}
+
+.contentCell img {
+	float: left;
+	height: 90%;
+	margin-right: 10px;
+}
+
+.contentTitle {
+	color: #3c78da;
+	display: block;
+}
+
+.contentAddress {
+	display: block;
+	color: #99999c;
+	margin-bottom: 3.5%;
+}
+
+.contentInfo {
+	color: #99999c;
+	display: block;
+}
+
+.contentEmail {
+	color: #99999c;
+}
+
+.errorText {
+    font-size: 110%;
+    color: red;
+    display: none;
+}

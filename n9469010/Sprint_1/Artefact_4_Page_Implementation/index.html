@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ page_title }}</title>
+        <style>
+           {{ insert_style }}
+        </style>
+    </head>
+    <body>
+        
+	    {{ page_header }}
+
+        <div id="whiteBox">
+            <span id="titleText">Data</span><br><br>
+            
+            {% if data_list %}
+                {% for data in data_list %}
+                <div id="{{ data.id }}" style="border-bottom:thin solid gray;text-align:left;padding:50px;margin:10px;overflow:hidden">
+                    
+                    <div style="float:left">
+
+                        <h4>    {{ data.name }}         </h4>
+                        <h4>    {{ data.dataType }}     </h4>
+                        <p>     {{ data.address }}      </p>
+                        
+
+                        {% if data.industryType %}
+                        <p> {{ data.industryType }} </p>
+                        {% endif %}
+
+                    </div>
+
+                    <div style="float:right">
+                        {% if data.phone %}
+                        <p> {{ data.phone }} </p>
+                        {% endif %}
+
+                        {% if data.email %}
+                        <p> {{ data.email }} </p>
+                        {% endif %}
+
+                        <p> Lat: {{ data.latitude }} </p>
+                        <p> Lon: {{ data.longitude }} </p>
+                        <h4><a href=""> Modify </a></h4>
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+           {% else %}
+                <p>No data to show</p>
+           {% endif %}
+            
+        </div>
+    </body>
+</html>

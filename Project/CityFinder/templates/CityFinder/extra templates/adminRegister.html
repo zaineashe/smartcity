@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ page_title }}</title>
+        <style>
+           {{ insert_style }}
+        </style></head>
+    <body>
+       
+        {{ page_header }}
+		
+        <div id="whiteBox">
+            <span id="titleText">Admin Register</span><br><br>
+            <form action="index.html" method="get" onsubmit="return registerSubmit(this)">
+                <input type="text" class="loginFormHalf" name="firstName" placeholder="First Name">
+                <input type="text" class="loginFormHalf" name="lastName" placeholder="Last Name"><br>
+                <input type="text" class="loginForm" name="username" placeholder="Username"><br>
+                <input type="password" class="loginForm" name="password" placeholder="Password"><br>
+				<input type="text" class="loginForm" name="phoneNumber" placeholder="Phone Number (optional)"><br>
+				<input type="text" class="loginForm" name="email" placeholder="Email (optional)"><br>
+				<input type="text" class="loginForm" name="address" placeholder="Address (optional)"><br>
+                <input type="submit" id="loginButton" value="Register">
+                <span id="loginOrRegisterText"> or <a href="login.html">Login</a></span>
+            </form>
+        </div>
+    </body>
+</html>

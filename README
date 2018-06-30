@@ -1,0 +1,44 @@
+	====  . QUT STUDENT PROJECT . ====
+		== . SMART CITY . =
+
+UNIT: IFB299 APPLICATION DESIGN AND DEVELOPMENT
+
+TUTORIAL: 6PM THURSDAY
+
+--- ASSOCIATED STUDENTS ---
+
+9469010
+9592059
+9617019
+9677542
+9727655
+
+---------------------------
+
+README
+
+
+##############################################################
+
+This is the git repository for IFB299 Group 114
+
+This repository was started by git user leexsen
+
+The aim of this project is to develop a 'smart city' web application using Django Framework, HTML, CSS and Javascript
+
+Throughout the development of this app, the associated students are expected to familiarise themselves with the SCRUM protocol of development. Each member of the group will be assigned a simulated role from the following list: user, developer, or SCRUM master.
+
+Students in the User role will gain a further understanding of the user experience, and come to understand the client mindset by simulating it.
+
+Students in the Developer role will learn how to perform SCRUM sprints, as well as write sprint retrospectives. This will familiarise students with the 80/20 rule, and teach them to prioritise the most important features of their application.
+
+Students in the SCRUM master role will learn how to organise a team. This responsibility includes: Managing conflict, assembling sprints, and interpreting client requests. 
+
+Group 114 has elected to rotate their SCRUM master weekly, to make the group dynamic feel more democratic.
+
+This project will last approximately 13 weeks, the duration of QUT's second semester of 2017 (17se2).
+
+##############################################################
+
+
+

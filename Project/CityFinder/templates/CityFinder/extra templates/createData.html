@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ page_title }}</title>
+    <style>
+        {{insert_style}}
+    </style>
+</head>
+<body>
+
+    {{ page_header }}
+
+    <div id="whiteBox">
+        <span id="titleText">Create Data</span><br><br>
+        <form action="index.html" method="get" onsubmit="return registerSubmit(this)">
+
+            <input type="text" class="loginForm" name="name" placeholder="Name..."><br/>
+            {% if city_list %}
+            <select class="loginForm" onchange="changeCity(this.value)">
+                {% for city in city_list %}
+                <option><p id="{{ city.city_id }}/" value="{{city.name}}">{{ city.name }}</p></option>
+                {% endfor %}
+            </select>
+            {% else %}
+            <p>NO_CITIES_CREATED_YET</p>
+            {% endif %}
+
+            <br/><br/>
+            
+            <input type="text" class="loginForm" name="address" placeholder="Address"><br>
+            <input type="text" class="loginForm" name="phone" placeholder="Phone"><br>
+            <input type="text" class="loginForm" name="email" placeholder="Email"><br>
+
+            <input type="text" class="loginFormHalf" name="latitude" placeholder="Latitude...">
+            <input type="text" class="loginFormHalf" name="longitude" placeholder="Longitude..."><br>
+
+            <input type="submit" id="loginButton" value="Create">
+
+        </form>
+    </div>
+</body>
+</html>

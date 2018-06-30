@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ page_title }}</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static "CityFinder/style.css" %}">
+
+        <script src="{% static "CityFinder/script.js" %}"></script>
+
+    </head>
+    <body>
+
+       {{ page_header }}
+		
+        <div id="whiteBox">
+            <span id="titleText">Register</span><br><br>
+            <form action="/CityFinder/register/" method="post" onsubmit="return registerSubmit(this)">
+				{% csrf_token %}
+                <input type="text" class="loginFormHalf" name="firstName" placeholder="First Name" onkeypress="clearError('noName')">
+                <input type="text" class="loginFormHalf" name="lastName" placeholder="Last Name" onkeypress="clearError('noName')"><br>
+                <span id="noName" class="errorText">Please enter a name.</span><br>
+
+				<input type="text" class="loginForm" name="username" placeholder="Username" onkeypress="clearError('noUsername')"><br>
+				<span id="noUsername" class="errorText">Please enter a username.</span><br>
+				
+                <input type="password" class="loginForm" name="password" placeholder="Password" onkeypress="clearError('noPassword')"><br>
+				<span id="noPassword" class="errorText">Please enter a password.</span><br>
+
+				<select id="userTypeSelector" name="userType" onchange="clearError('noUserType')">
+					<option value="">User type</option>
+					<option value="S">Student</option>
+					<option value="B">Businessman</option>
+					<option value="T">Tourist</option>
+				</select><br>
+				<span id="noUserType" class="errorText">Please select a user type.</span><br>
+				
+				<input type="text" class="loginForm" name="phoneNumber" placeholder="Phone Number (optional)" onkeypress="clearError('noPhoneNumber')"><br>
+				<span id="noPhoneNumber" class="errorText">Invalid phone number.</span><br>
+				<input type="text" class="loginForm" name="email" placeholder="Email (optional)" onkeypress="clearError('noEmail')"><br>
+				<span id="noEmail" class="errorText">Please enter an valid email.</span><br>
+				<input type="text" class="loginForm" name="address" placeholder="Address (optional)"><br>
+				<span id="noAddress" class="errorText">Please enter a valid address (Street No,Name,Suburb,Postcode,City)</span><br>
+				<input type="submit" id="loginButton" value="Register">
+                <span id="loginOrRegisterText"> or <a href="/CityFinder/login/">Login</a></span>
+            </form>
+        </div>
+    </body>
+	
+	<script>
+		if ( {{ registerFailed }} ) {
+			alert('The username has been registered');
+		}
+	</script>
+</html>

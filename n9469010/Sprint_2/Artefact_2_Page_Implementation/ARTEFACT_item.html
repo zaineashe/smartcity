@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>City Finder</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static "CityFinder/style.css" %}">
+
+        <script src="{% static "CityFinder/script.js" %}"></script>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiQBcLHFTpkoWsFJgGwtDWQ52GH-KFS-w&callback=initMap"></script>
+    </head>
+    <body onload="fillSearchBar();">
+
+        {{ page_header }}
+		
+		 <div class="content">
+
+           {% if data != nil %}
+
+           <div class="contentListHeader">
+               <span id="itemHeader" class="contentListHeaderText">{{data.data_name}}</span>
+           </div>  
+
+           <div id="results" class="contentList">
+
+
+               
+               <data id="{{data.data_id}}" value="{{data.latitude}},{{data.longitude}}">
+                   <p id="{{data.dataType}}_{{data.data_id}}" href="/CityFinder/Item/?id={{data.data_id}}">
+                       <div class="contentCell">
+                           <img src="{% static "CityFinder/imgs/photo.jpg" %}" alt="photo">
+
+                           <span class="contentAddress"> {{ address.street_number }} {{address.street_name}}</span>
+                           <span class="contentAddress"> {{address.suburb}} {{address.postcode}} {{address.city}} </span>
+                           
+                           
+                           
+                           <span class="contentEmail">{{data.email}}</span><br />
+                           <span class="contentEmail">{{data.phone}}</span>
+
+                       </div>
+                   </p>
+
+                   {% if data.dataType == "In" %}
+                   <b>Industry: {{data.industryType}}</b>
+                   {% endif %}
+
+                   {% if data.dataType == "Co" %}
+                   <div id="departments">
+                       <b>Departments</b><br />
+
+                       {% if departments != nil %}
+
+                        {% for department in departments %}
+                        
+                            <p class="department">{{department.department_name}}</p>
+
+                        {% endfor %}
+
+                       {% endif %}
+
+                   </div>
+                   {% endif %}
+
+               </data>
+
+           </div>
+             {% else %}
+             <p>Incorrect data id! return to index and try again</p>
+
+        {% endif %}
+        </div>
+
+           
+           <div id="mapWrapper">
+               <div id="map"></div>
+           </div>
+
+		
+
+	</body>
+</html>

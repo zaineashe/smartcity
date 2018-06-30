@@ -1,0 +1,74 @@
+ <div id="header">
+	<a id="logoLink" href="/CityFinder/index/">
+		<div id="logo">
+			<span id="text_city">City</span>
+			<span id="text_finder">Finder</span>
+		</div>
+	</a>
+	
+	<div id="searchBox">
+		<form action="javascript:void(0);" method="get" onsubmit="changeSearch();">
+             <input type="text" id="searchBar" name="search" placeholder="Search">
+			 <input type="submit" id="searchButton" value="Search">
+         </form>
+    </div>
+
+     {% if userType != "" %}
+        {% if userType != null %}
+        <b id="sortHeader" hidden>{{userType}}</b>
+        {% else %}
+        <b id="sortHeader" hidden>NULL</b>
+        {% endif %}
+     {% else %}
+        <b id="sortHeader" hidden>NULL</b>
+     {% endif %}
+
+    <div id="navigationBar"></div>
+
+     {% if cur_city != "" %}
+     {% if cur_city != null %}
+     <b id="cityPos" hidden>{{cur_city.latitude}},{{cur_city.longitude}}</b>
+     {% else %}
+     <b id="cityPos" hidden>-25.344896,131.035988</b>
+     {% endif %}
+     {% else %}
+     <b id="cityPos" hidden>-25.344896,131.035988</b>
+     {% endif %}
+
+
+        {% if city_list %}
+        <select id="citySelector" onchange="changeCity(this.value)">
+            <option>Cities</option>
+            {% for city in city_list %}
+			{% if cur_city.city_name == city.city_name %}
+				<option id="city_{{city.city_id}}" selected><p value="{{city.city_name}}">{{city.city_id}}.{{ city.city_name }}</p></option>
+			{% else %}
+				<option id="city_{{city.city_id}}"><p value="{{city.city_name}}">{{city.city_id}}.{{ city.city_name }}</p></option>
+			{% endif %}
+            {% endfor %}
+        </select>
+        {% else %}
+        <p>NO_CITIES_CREATED_YET</p>
+        {% endif %}
+ 
+	
+	{% if username != nil %}
+	<span id="topRight">
+		<a href="">{{ username }}</a>  
+		{% if userType != 'A' %}
+		<a href="/CityFinder/accountEditing">Edit Account</a>
+		{% endif %}
+		{% if userType == 'A' %}
+			<a href="/CityFinder/adminRegister">Create Admin</a>
+			<a href="/admin">Manage</a>
+		{% endif %}
+		<a href="/CityFinder/logout">Logout</a>  
+    </span>
+	{% else %}
+    <span id="topRight">
+		<a href="/CityFinder/login">Login</a>
+    </span>
+	{% endif %}
+    
+
+</div>

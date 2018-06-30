@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ page_title }}</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static "CityFinder/style.css" %}">
+
+        <script src="{% static "CityFinder/script.js" %}"></script>
+
+    </head>
+    <body>
+        
+	    {{ page_header }}
+
+        <div id="whiteBox">
+            <span id="titleText">Login</span><br><br>
+            <form action="/CityFinder/login/" method="post" onsubmit="return loginSubmit(this)">
+				{% csrf_token %}
+                <input type="text" id="loginFormTop" name="username" placeholder="Username" onkeypress="clearError('noUsername')"><br>
+                <span id="noUsername" class="errorText">Please enter a username.</span><br>
+				<input type="password" id="loginFormTop" name="password" placeholder="Password" onkeypress="clearError('noPassword')"><br>
+                <span id="noPassword" class="errorText">Please enter a password.</span><br>
+				<input type="submit" id="loginButton" value="Login">
+                <span id="loginOrRegisterText"> or <a href="/CityFinder/register/">Register</a></span>
+            </form>
+        </div>
+    </body>
+	
+	<script>
+		if ( {{ loginFailed }} ) {
+			alert('The username or password is incorrect');
+		}
+	</script>
+</html>
